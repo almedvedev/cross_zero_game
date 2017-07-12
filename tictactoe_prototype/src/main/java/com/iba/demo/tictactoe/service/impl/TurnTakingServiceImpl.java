@@ -15,6 +15,13 @@ public class TurnTakingServiceImpl {
 		final Player turnTaker = turn.getTaker();
 		updateBoardCell(game, turnCell);
 		updateTurnTaker(game, turnTaker);
+		updateRemainingTurns(game);
+	}
+
+	private void updateRemainingTurns(Game game) {
+		int remainingTurns = game.getRemainingTurns();
+		remainingTurns --;
+		game.setRemainingTurns(remainingTurns);
 	}
 
 	private void updateBoardCell(Game game, BoardCell cell) {
@@ -28,13 +35,10 @@ public class TurnTakingServiceImpl {
 	}
 
 	private Player resolveNextTurnTaker(Game game, Player turnTaker) throws GameException {
-		Player nextTurnTaker = null;		
 		if (PlayerMark.CROSS.equals( turnTaker.getMark() ) ) {
-			nextTurnTaker = game.getNoughtPlayer();
-		} else {
-			nextTurnTaker = game.getCrossPlayer();
-		}			
-		return nextTurnTaker;
+			return game.getNoughtPlayer();
+		} 
+		return game.getCrossPlayer();		
 	}
 
 }

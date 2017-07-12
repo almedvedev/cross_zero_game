@@ -29,9 +29,9 @@ public class TurnValidator {
 		BoardCell turnCell  = turn.getCell(); //game.getBoard().getCells()
 		
 		//TODO: improve
-		if ( turnCell.getCoordX() < 0 || turnCell.getCoordX() > Board.SIZE_X ) {
+		if ( turnCell.getCoordX() < 0 || turnCell.getCoordX() > Board.SIZE ) {
 			addMessage(ErrorCode.WRONG_TURN_CELL, "Invalid cell");
-		} else if ( turnCell.getCoordY() < 0 || turnCell.getCoordY() > Board.SIZE_Y ) {
+		} else if ( turnCell.getCoordY() < 0 || turnCell.getCoordY() > Board.SIZE ) {
 			addMessage(ErrorCode.WRONG_TURN_TAKER, "Invalid cell");
 		}
 		//TODO: check the turn cell is applicable

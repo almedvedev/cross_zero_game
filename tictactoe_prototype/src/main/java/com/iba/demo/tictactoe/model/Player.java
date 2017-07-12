@@ -6,18 +6,18 @@ public class Player {
 	
 	private PlayerMark mark;
 	
+	public Player(String id, PlayerMark mark) {
+		super();
+		this.id = id;
+		this.mark = mark;		
+	}
+	
 	public String getId() {
 		return id;
 	}
 
 	public PlayerMark getMark() {
 		return mark;
-	}
-
-	public Player(String id, PlayerMark mark) {
-		super();
-		this.id = id;
-		this.mark = mark;		
 	}
 
 	@Override
