@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.iba.demo.tictak.model.BoardMock;
 import com.iba.demo.tictak.model.Game;
 import com.iba.demo.tictak.model.Turn;
+import com.iba.demo.tictak.model.factory.GameFactory;
 import com.iba.demo.tictak.model.validation.TurnValidator;
 import com.iba.demo.tictak.service.BotService;
 import com.iba.demo.tictak.service.GameService;
@@ -30,7 +31,7 @@ public class GameController {
         model.addAttribute("name", "TicTak");
     }
 
-    @PostMapping("/board")
+    @PostMapping("/board")    
     public ResponseEntity<?> getSearchResultViaAjax(@RequestBody String search, Errors errors) {
         BoardMock board = new BoardMock();
         Gson gson = new Gson();
@@ -40,6 +41,11 @@ public class GameController {
             return ResponseEntity.badRequest().body(result);
         }
         return ResponseEntity.ok(result);
+    }
+    
+    @PostMapping("/game2")
+    public ResponseEntity<?> getGame(@RequestBody String search, Errors errors) {        
+        return ResponseEntity.ok(GameFactory.newGameFactory(null, null).createGame());
     }
     
     public ResponseEntity<?> makeBotTurn(@RequestParam String gameId) throws Exception {

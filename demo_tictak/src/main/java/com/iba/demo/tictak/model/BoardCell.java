@@ -31,5 +31,9 @@ public class BoardCell {
 		return state;
 	}	
 	
+	public void setState(BoardCellState state) {
+		this.state = state;
+	}
+	
 
 }

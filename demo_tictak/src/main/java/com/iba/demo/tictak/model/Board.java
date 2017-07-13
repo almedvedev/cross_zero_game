@@ -13,7 +13,7 @@ public class Board {
 	public BoardCell getCell(int coordX, int coordY) {
 		BoardCell cell = cells[coordX][coordY];
 		if (cell == null) {
-			return new BoardCell(coordX, coordY, BoardCellState.EMPTY);
+			cells[coordX][coordY] = new BoardCell(coordX, coordY, BoardCellState.EMPTY);
 		}
 		return cell;
 	}
