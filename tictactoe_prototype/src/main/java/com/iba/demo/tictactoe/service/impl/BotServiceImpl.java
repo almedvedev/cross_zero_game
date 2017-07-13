@@ -1,5 +1,6 @@
 package com.iba.demo.tictactoe.service.impl;
 
+import com.iba.demo.tictactoe.model.Board;
 import com.iba.demo.tictactoe.model.BoardCell;
 import com.iba.demo.tictactoe.model.BoardCellState;
 import com.iba.demo.tictactoe.model.Game;
@@ -13,12 +14,25 @@ public class BotServiceImpl implements BotService {
 	 */
 	@Override
 	public Turn makeRandomTurn(Game game) {
-		// TODO: by Victor
-		Turn turn = null;
-		BoardCell cell = game.getBoard().getCell(0, 0);
-		BoardCellState state = cell.getState();
+//TODO		
+//		int turnRnd = RandomGenerator.getRandomNumInRange(0, game.getRemainingTurns()-1);
+		int turnRnd = 0;
 		
-		return turn;
+		
+		int freeCellNum=0;
+		Board board = game.getBoard();
+		BoardCell  cell;
+		
+		for(int x = 0; x < Board.SIZE; x ++) {
+			for(int y = 0; y < Board.SIZE; y ++) {
+				cell = board.getCell(x, y);
+				if(BoardCellState.EMPTY.equals(cell.getState()) && freeCellNum++ == turnRnd ){
+					return new Turn(game.getTurnTaker(), cell);
+					
+				}
+			}
+		}
+		return null;
 	}
 
 }
