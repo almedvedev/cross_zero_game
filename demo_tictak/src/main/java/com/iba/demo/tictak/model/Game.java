@@ -14,6 +14,10 @@ public class Game {
 	
 	private int remainingTurns;
 	
+	private GameStatus status;
+	
+	private Player winner;
+	
 	private Board board;
 	
 	public Game(Player crossPlayer, Player noughtPlayer, Board board) {
@@ -24,6 +28,7 @@ public class Game {
 		this.board = board;
 		this.remainingTurns = Board.SIZE * Board.SIZE;
 		this.id = UUID.randomUUID().toString();
+		this.status = GameStatus.IN_PROPGRESS;
 	}
 	
 	public String getId() {
@@ -46,10 +51,6 @@ public class Game {
 		this.turnTaker = turnTaker;
 	}
 	
-	public Board getBoard() {
-		return board;
-	}
-
 	public int getRemainingTurns() {
 		// or count empty cells
 		return remainingTurns;
@@ -57,6 +58,26 @@ public class Game {
 
 	public void setRemainingTurns(int remainingTurns) {
 		this.remainingTurns = remainingTurns;
+	}
+	
+	public GameStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(GameStatus status) {
+		this.status = status;
+	}
+
+	public Player getWinner() {
+		return winner;
+	}
+
+	public void setWinner(Player winner) {
+		this.winner = winner;
+	}
+
+	public Board getBoard() {
+		return board;
 	}
 	
 

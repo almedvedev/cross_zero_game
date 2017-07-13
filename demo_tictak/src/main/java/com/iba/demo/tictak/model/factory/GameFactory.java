@@ -17,6 +17,10 @@ public class GameFactory {
 		this.noughtPlayer = noughtPlayer;
 	}
 	
+	public static GameFactory newGameFactory() {
+		return new GameFactory(null, null);
+	}
+	
 	public static GameFactory newGameFactory(Player crossPlayer, Player noughtPlayer) {
 		return new GameFactory(crossPlayer, noughtPlayer);
 	}

@@ -26,7 +26,7 @@ public class WinnerDeterminator {
 			winner = findWinnerByLine(game, i -> board.getCell(i, i) );
 			if (winner != null) 
 				break;
-			winner = findWinnerByLine(game, i -> board.getCell(Board.SIZE - i, i) );
+			winner = findWinnerByLine(game, i -> board.getCell(Board.SIZE - i - 1, i) );
 			if (winner != null) 
 				break;
 		}
@@ -38,7 +38,7 @@ public class WinnerDeterminator {
 		int noughtCount = 0;
 		for(int i = 0; i < Board.SIZE; i ++) {
 			BoardCell cell = cellProvider.getCell(i);
-			BoardCellState cellState = cell.getState();
+			BoardCellState cellState = cell.getState();			
 			if ( BoardCellState.CROSS.equals( cellState ) ) {
 				crossCount ++;
 			} else if ( BoardCellState.NOUGHT.equals( cellState ) ) {

@@ -11,10 +11,13 @@ public class Board {
 	}
 	
 	public BoardCell getCell(int coordX, int coordY) {
-		return cells[coordX][coordY];
+		BoardCell cell = cells[coordX][coordY];
+		if (cell == null) {
+			return new BoardCell(coordX, coordY, BoardCellState.EMPTY);
+		}
+		return cell;
 	}
 	
-	// TODO: ?
 	public void updateWithCell(BoardCell cell) {
 		int x = cell.getCoordX();
 		int y = cell.getCoordY();
