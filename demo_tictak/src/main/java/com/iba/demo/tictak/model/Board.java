@@ -14,6 +14,7 @@ public class Board {
 		return cells[coordX][coordY];
 	}
 	
+	// TODO: ?
 	public void updateWithCell(BoardCell cell) {
 		int x = cell.getCoordX();
 		int y = cell.getCoordY();

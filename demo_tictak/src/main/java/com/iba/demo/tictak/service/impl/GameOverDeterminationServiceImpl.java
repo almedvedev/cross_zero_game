@@ -19,16 +19,16 @@ public class GameOverDeterminationServiceImpl {
 			final int coord = j;
 			winner = findWinnerByLine(game, i -> board.getCell(coord, i) );
 			if (winner != null) 
-				return winner;			
+				break;			
 			winner = findWinnerByLine(game, i -> board.getCell(i, coord) );
 			if (winner != null) 
-				return winner;			
+				break;			
 			winner = findWinnerByLine(game, i -> board.getCell(i, i) );
 			if (winner != null) 
-				return winner;
+				break;
 			winner = findWinnerByLine(game, i -> board.getCell(Board.SIZE - i, i) );
 			if (winner != null) 
-				return winner;
+				break;
 		}
 		return winner;
 	}
