@@ -5,6 +5,6 @@ import com.iba.demo.tictak.model.Turn;
 
 public interface BotService {
 
-	Turn makeRandomTurn(Game game);
+	Turn generateRandomTurn(Game game);
 
 }

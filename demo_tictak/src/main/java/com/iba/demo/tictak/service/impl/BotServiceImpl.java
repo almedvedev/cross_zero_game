@@ -15,7 +15,7 @@ public class BotServiceImpl implements BotService {
 	 * @see com.iba.demo.tictactoe.service.impl.BotService#makeRandomTurn(com.iba.demo.tictactoe.model.Game)
 	 */
 	@Override
-	public Turn makeRandomTurn(Game game) {
+	public Turn generateRandomTurn(Game game) {
 		if (game.getRemainingTurns() > 0) {
 			int turnNumRnd = new RandomGenerator().getRandomNumInRange(0, game.getRemainingTurns() - 1);
 			int freeCellNum = 0;

@@ -7,23 +7,26 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.gson.Gson;
 import com.iba.demo.tictak.model.BoardMock;
 import com.iba.demo.tictak.model.Game;
 import com.iba.demo.tictak.model.Turn;
+import com.iba.demo.tictak.model.validation.TurnValidator;
 import com.iba.demo.tictak.service.BotService;
-import com.iba.demo.tictak.service.TurnTakingService;
+import com.iba.demo.tictak.service.GameService;
 
 @Controller
 public class GameController {
 	
-	private TurnTakingService turnTakingService;
-	
 	private BotService botService;
+	
+	private GameService gameService; 
 
     @RequestMapping("/game")
     public void newGame(Model model) {
+    	
         model.addAttribute("name", "TicTak");
     }
 
@@ -39,18 +42,22 @@ public class GameController {
         return ResponseEntity.ok(result);
     }
     
-    public ResponseEntity<?> makeBotTurn() throws Exception {
-    	 
-    	Game game = null; // get from GameService
-    	Turn turn = botService.makeRandomTurn(game);
-    	turnTakingService.takeTurn(game, turn);
+    public ResponseEntity<?> makeBotTurn(@RequestParam String gameId) throws Exception {
+    	Game game = null; // get from GameServiceImpl
+    	Turn turn = botService.generateRandomTurn(game);
+    	gameService.makeTurn(game, turn);
     	return ResponseEntity.ok(game);
     }
     
     public ResponseEntity<?> makeTurn(@RequestBody Turn turn) throws Exception {
-   	 	Game game = null; // get from GameService
-   	 	// turn validation
-    	turnTakingService.takeTurn(game, turn);    	
+    	String gameId = null; // TODO: somehow get gameId
+   	 	Game game = gameService.findGameById(gameId);
+   	 	TurnValidator turnValidator = new TurnValidator(game, turn);
+   	 	turnValidator.validate();
+   	 	if ( turnValidator.hasError() ) {
+   	 		// TODO: handle error 
+   	 	}
+   	 	gameService.makeTurn(game, turn);    	
     	return ResponseEntity.ok(game);
     }
 

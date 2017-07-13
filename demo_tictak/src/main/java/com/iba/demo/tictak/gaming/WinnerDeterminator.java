@@ -1,4 +1,4 @@
-package com.iba.demo.tictak.service.impl;
+package com.iba.demo.tictak.gaming;
 
 import com.iba.demo.tictak.model.Board;
 import com.iba.demo.tictak.model.BoardCell;
@@ -6,14 +6,14 @@ import com.iba.demo.tictak.model.BoardCellState;
 import com.iba.demo.tictak.model.Game;
 import com.iba.demo.tictak.model.Player;
 
-public class GameOverDeterminationServiceImpl {
+public class WinnerDeterminator {
 	
 	private interface CellsInLineProvider {
 		BoardCell getCell(int cellIndex);
 	}
 	
 	public Player determineWinner(Game game) {
-		Player winner = null;		
+		Player winner = null;
 		Board board = game.getBoard();
 		for(int j = 0; j < Board.SIZE; j ++) {			
 			final int coord = j;

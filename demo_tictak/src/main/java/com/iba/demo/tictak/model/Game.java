@@ -1,5 +1,7 @@
 package com.iba.demo.tictak.model;
 
+import java.util.UUID;
+
 public class Game {
 	
 	private String id;
@@ -21,6 +23,7 @@ public class Game {
 		this.turnTaker = crossPlayer; 
 		this.board = board;
 		this.remainingTurns = Board.SIZE * Board.SIZE;
+		this.id = UUID.randomUUID().toString();
 	}
 	
 	public String getId() {
