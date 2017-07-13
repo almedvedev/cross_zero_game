@@ -18,7 +18,6 @@ public class BotServiceImpl implements BotService {
 	public Turn makeRandomTurn(Game game) {
 		if (game.getRemainingTurns() > 0) {
 			int turnNumRnd = new RandomGenerator().getRandomNumInRange(0, game.getRemainingTurns() - 1);
-
 			int freeCellNum = 0;
 			Board board = game.getBoard();
 			BoardCell cell;
