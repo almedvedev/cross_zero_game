@@ -11,7 +11,7 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.iba.demo.tictactoe.util.RandomGenerator;
+import com.iba.demo.tictak.util.RandomGenerator;
 
 public class RandomGeneratorTest {
 	
