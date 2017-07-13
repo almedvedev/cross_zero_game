@@ -1,15 +1,15 @@
-package com.iba.demo.tictactoe.service.impl;
+package com.iba.demo.tictak.service.impl;
 
-import com.iba.demo.tictactoe.model.Board;
-import com.iba.demo.tictactoe.model.BoardCell;
-import com.iba.demo.tictactoe.model.BoardCellState;
-import com.iba.demo.tictactoe.model.Game;
-import com.iba.demo.tictactoe.model.Player;
+import com.iba.demo.tictak.model.Board;
+import com.iba.demo.tictak.model.BoardCell;
+import com.iba.demo.tictak.model.BoardCellState;
+import com.iba.demo.tictak.model.Game;
+import com.iba.demo.tictak.model.Player;
 
-public class WinnerDeterminationServiceImpl {
+public class GameOverDeterminationServiceImpl {
 	
-	private interface CellProvider {
-		BoardCell getCell(int i);
+	private interface CellsInLineProvider {
+		BoardCell getCell(int cellIndex);
 	}
 	
 	public Player determineWinner(Game game) {
@@ -17,23 +17,23 @@ public class WinnerDeterminationServiceImpl {
 		Board board = game.getBoard();
 		for(int j = 0; j < Board.SIZE; j ++) {			
 			final int coord = j;
-			winner = checkBoardLine(game, i -> board.getCell(coord, i) );
+			winner = findWinnerByLine(game, i -> board.getCell(coord, i) );
 			if (winner != null) 
 				return winner;			
-			winner = checkBoardLine(game, i -> board.getCell(i, coord) );
+			winner = findWinnerByLine(game, i -> board.getCell(i, coord) );
 			if (winner != null) 
 				return winner;			
-			winner = checkBoardLine(game, i -> board.getCell(i, i) );
+			winner = findWinnerByLine(game, i -> board.getCell(i, i) );
 			if (winner != null) 
 				return winner;
-			winner = checkBoardLine(game, i -> board.getCell(Board.SIZE - i, i) );
+			winner = findWinnerByLine(game, i -> board.getCell(Board.SIZE - i, i) );
 			if (winner != null) 
 				return winner;
 		}
 		return winner;
 	}
 
-	private Player checkBoardLine(Game game, CellProvider cellProvider) {
+	private Player findWinnerByLine(Game game, CellsInLineProvider cellProvider) {
 		int crossCount = 0;
 		int noughtCount = 0;
 		for(int i = 0; i < Board.SIZE; i ++) {
@@ -46,7 +46,8 @@ public class WinnerDeterminationServiceImpl {
 			}
 			if (crossCount == Board.SIZE) {
 				return game.getCrossPlayer();
-			} else if (noughtCount == Board.SIZE) {
+			}
+			if (noughtCount == Board.SIZE) {
 				return game.getNoughtPlayer();
 			}
 		}		

@@ -1,12 +1,12 @@
-package com.iba.demo.tictactoe.model.validation;
+package com.iba.demo.tictak.model.validation;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.iba.demo.tictactoe.model.Game;
-import com.iba.demo.tictactoe.model.Board;
-import com.iba.demo.tictactoe.model.BoardCell;
-import com.iba.demo.tictactoe.model.Turn;
+import com.iba.demo.tictak.model.Board;
+import com.iba.demo.tictak.model.BoardCell;
+import com.iba.demo.tictak.model.Game;
+import com.iba.demo.tictak.model.Turn;
 
 public class TurnValidator {
 	

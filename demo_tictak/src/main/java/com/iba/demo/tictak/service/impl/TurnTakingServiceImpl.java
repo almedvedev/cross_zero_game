@@ -1,18 +1,18 @@
-package com.iba.demo.tictactoe.service.impl;
+package com.iba.demo.tictak.service.impl;
 
-import com.iba.demo.tictactoe.exceptions.GameException;
-import com.iba.demo.tictactoe.model.Game;
-import com.iba.demo.tictactoe.model.Board;
-import com.iba.demo.tictactoe.model.BoardCell;
-import com.iba.demo.tictactoe.model.Player;
-import com.iba.demo.tictactoe.model.PlayerMark;
-import com.iba.demo.tictactoe.model.Turn;
-import com.iba.demo.tictactoe.service.TurnTakingService;
+import com.iba.demo.tictak.exception.GameException;
+import com.iba.demo.tictak.model.Board;
+import com.iba.demo.tictak.model.BoardCell;
+import com.iba.demo.tictak.model.Game;
+import com.iba.demo.tictak.model.Player;
+import com.iba.demo.tictak.model.PlayerMark;
+import com.iba.demo.tictak.model.Turn;
+import com.iba.demo.tictak.service.TurnTakingService;
 
 public class TurnTakingServiceImpl implements TurnTakingService {
 	
 	/* (non-Javadoc)
-	 * @see com.iba.demo.tictactoe.service.impl.TurnTakingService#takeTurn(com.iba.demo.tictactoe.model.Game, com.iba.demo.tictactoe.model.Turn)
+	 * @see com.iba.demo.tictak.web.application.service.impl.TurnTakingService#takeTurn(com.iba.demo.tictactoe.model.Game, com.iba.demo.tictactoe.model.Turn)
 	 */
 	@Override
 	public void takeTurn(Game game, Turn turn) throws GameException {
@@ -31,7 +31,7 @@ public class TurnTakingServiceImpl implements TurnTakingService {
 
 	private void updateBoardCell(Game game, BoardCell cell) {
 		Board board = game.getBoard();
-		board.putCell(cell);
+		board.updateWithCell(cell);
 	}
 	
 	private void updateTurnTaker(Game game, Player turnTaker) throws GameException {
