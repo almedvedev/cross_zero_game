@@ -2,8 +2,11 @@ package com.iba.demo.tictak.util;
 
 import java.util.Random;
 
+/**
+ * @author Pavel Bekish
+ */
 public class RandomGenerator {
-private Random random;
+	private Random random;
 	
 	public RandomGenerator() {
 		random = new Random();
@@ -24,7 +27,7 @@ private Random random;
      * @param from initial value of the range
      * @param to end value of the range
      * @return {@code int} value between {@code from} (inclusive) and the {@code end} (inclusive)
-     * @throws IllegalArgumentException if bound is not positive
+     * @throws IllegalArgumentException if {@code from} less than {@code end}
      */
 	public Integer getRandomNumInRange(int from, int to) {
 		if(from > to) {

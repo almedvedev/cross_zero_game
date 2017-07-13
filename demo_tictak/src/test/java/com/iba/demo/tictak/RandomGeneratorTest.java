@@ -13,6 +13,9 @@ import org.junit.Test;
 
 import com.iba.demo.tictak.util.RandomGenerator;
 
+/**
+ * @author Pavel Bekish
+ */
 public class RandomGeneratorTest {
 	
 	public static final Integer MAX_ITER_COUNT = 100;
