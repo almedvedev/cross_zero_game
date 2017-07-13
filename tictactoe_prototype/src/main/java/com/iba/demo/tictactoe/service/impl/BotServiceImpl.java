@@ -14,6 +14,7 @@ public class BotServiceImpl implements BotService {
 	 */
 	@Override
 	public Turn makeRandomTurn(Game game) {
+
 //TODO		
 //		int turnRnd = RandomGenerator.getRandomNumInRange(0, game.getRemainingTurns()-1);
 		int turnRnd = 0;
