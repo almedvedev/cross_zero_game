@@ -24,7 +24,7 @@ body {
 #turn_taker {
     text-align: center;
     color: white;
-    margin-top: 20px;
+    margin-top: 20%;
 }
 
 .start_form input {
@@ -50,7 +50,7 @@ body {
 
 #tictak_table {
     display: inline-table;
-    margin-top: 20%;
+    margin-top: 20px;
 }
 
 .tictak_cell {

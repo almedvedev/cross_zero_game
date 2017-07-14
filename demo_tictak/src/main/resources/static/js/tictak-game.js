@@ -42,7 +42,17 @@ function startGame() {
                 makeTurn(game.board.cells);
                 if (game.status == "GAME_OVER") {
                     clearInterval(botTimer);
-                    setTurnTaker("Winner: " + game.gameOver.winner.mark);
+                    var gameOverCondition = game.gameOver.gameOverCond;
+                    if (gameOverCondition === "NONE" || gameOverCondition === "DRAW") {
+                        setTurnTaker("Game finished");
+                    } else {
+                        setTurnTaker("Winner: " +
+                            (game.gameOver.winner.mark == "CROSS" ? "x" : "o") +
+                            " | Condition: " +
+                            (gameOverCondition == "WON_WITH_HORIZONTAL_LINE" ? "Won with horizontal line" :
+                                (gameOverCondition == "WON_WITH_VERTICAL_LINE" ? "Won with vertical line" :
+                                    "Won with diagonal line ")));
+                    }
                     return;
                 } else {
                     setTurnTaker(game.turnTaker.mark);
@@ -57,7 +67,6 @@ function startGame() {
 
     setTimeout(function () {
         clearInterval(botTimer);
-        alert("Game finished");
     }, 19000);
 }
 
