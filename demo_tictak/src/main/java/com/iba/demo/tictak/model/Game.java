@@ -2,6 +2,11 @@ package com.iba.demo.tictak.model;
 
 import java.util.UUID;
 
+
+/**
+ * @author Alexander Medvedev
+ */
+
 public class Game {
 	
 	private String id;

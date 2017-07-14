@@ -1,8 +1,8 @@
 package com.iba.demo.tictak.gaming;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
-import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.iba.demo.tictak.exception.GameException;
@@ -11,7 +11,6 @@ import com.iba.demo.tictak.model.Game;
 import com.iba.demo.tictak.model.Turn;
 import com.iba.demo.tictak.model.factory.GameFactory;
 import com.iba.demo.tictak.model.factory.RandomPlayerGameFactory;
-import com.iba.demo.tictak.model.helper.GameBoardHelper;
 import com.iba.demo.tictak.screen.Screen;
 import com.iba.demo.tictak.screen.console.BoardTemplate;
 import com.iba.demo.tictak.screen.console.ConsoleScreen;
@@ -29,8 +28,17 @@ public class GamePlayTest {
 	
 	private BotService botService = new BotServiceImpl();
 	
+	@Test	
+	public void testGameplayWithRepeat() {
+		int repeat = 10;
+		for(int i = 0; i < repeat; i++) {
+			testGameplay();
+		}
+	}
+	
 	@Test
-	public void testGamePlay() {
+	@Ignore
+	public void testGameplay() {
 		GameFactory gameFactory = RandomPlayerGameFactory.newGameFactory(); 
 		Game game = gameFactory.createGame();
 		
@@ -49,11 +57,15 @@ public class GamePlayTest {
 				fail( e.getMessage() );
 				e.printStackTrace();
 			}
-			
-			View view = buildView( game.getBoard() );
-			screen.display( view );
+			printGameplay(game);
 		}
 		
+	}
+
+	private void printGameplay(Game game) {
+		View view = buildView( game.getBoard() );
+		screen.display( view );		
+		System.out.println(game.getGameOver().getGameOverCond());
 	}
 	
 	private View buildView(Board board) {

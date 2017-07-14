@@ -8,6 +8,11 @@ import com.iba.demo.tictak.model.GameOver;
 import com.iba.demo.tictak.model.GameOverCond;
 import com.iba.demo.tictak.model.Player;
 
+
+/**
+ * @author Alexander Medvedev
+ */
+
 public class GameOverDeterminator {
 	
 	private interface CellsInLineProvider {

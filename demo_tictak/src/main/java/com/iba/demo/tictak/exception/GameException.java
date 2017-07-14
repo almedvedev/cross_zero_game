@@ -1,5 +1,9 @@
 package com.iba.demo.tictak.exception;
 
+/**
+ * @author Alexander Medvedev, Pavel Bekish
+ */
+
 public class GameException extends Exception {
 
 	private static final long serialVersionUID = 1L;

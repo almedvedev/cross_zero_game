@@ -4,6 +4,10 @@ import com.iba.demo.tictak.model.Board;
 import com.iba.demo.tictak.model.BoardCell;
 import com.iba.demo.tictak.model.BoardCellState;
 
+/**
+ * @author Pavel Bekish
+ */
+
 public class GameBoardHelper {
 
 	public static BoardCell[][] buildEmptyBoardCells() {

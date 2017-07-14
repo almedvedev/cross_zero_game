@@ -1,5 +1,10 @@
 package com.iba.demo.tictak.model;
 
+
+/**
+ * @author Alexander Medvedev, Pavel Bekish
+ */
+
 public class BoardCell {
 	
 	private int coordX;

@@ -1,5 +1,7 @@
 package com.iba.demo.tictak.service.impl;
 
+import org.springframework.stereotype.Service;
+
 import com.iba.demo.tictak.model.Board;
 import com.iba.demo.tictak.model.BoardCell;
 import com.iba.demo.tictak.model.BoardCellState;
@@ -13,6 +15,7 @@ import com.iba.demo.tictak.util.RandomGenerator;
  * @author Tatarenko_V
  *
  */
+@Service("botService")
 public class BotServiceImpl implements BotService {
 	
 	/* (non-Javadoc)

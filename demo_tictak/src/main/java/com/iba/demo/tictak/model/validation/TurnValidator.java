@@ -9,6 +9,10 @@ import com.iba.demo.tictak.model.BoardCellState;
 import com.iba.demo.tictak.model.Game;
 import com.iba.demo.tictak.model.Turn;
 
+/**
+ * @author Pavel Bekish
+ */
+
 public class TurnValidator {
 	
 	private Game game;

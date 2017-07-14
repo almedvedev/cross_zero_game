@@ -9,6 +9,10 @@ import com.iba.demo.tictak.model.Player;
 import com.iba.demo.tictak.model.PlayerMark;
 import com.iba.demo.tictak.model.Turn;
 
+/**
+ * @author Alexander Medvedev
+ */
+
 public class TurnMaker {
 	
 	public void makeTurn(Game game, Turn turn) throws GameException {

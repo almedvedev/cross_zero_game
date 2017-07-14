@@ -1,5 +1,9 @@
 package com.iba.demo.tictak.model;
 
+/**
+ * @author Alexander Medvedev, Pavel Bekish
+ */
+
 public class Board {
 	
 	public final static int SIZE = 3;

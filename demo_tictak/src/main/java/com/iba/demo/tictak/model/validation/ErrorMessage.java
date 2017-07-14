@@ -1,5 +1,9 @@
 package com.iba.demo.tictak.model.validation;
 
+/**
+ * @author Pavel Bekish
+ */
+
 public class ErrorMessage {
 	
 	private String code;

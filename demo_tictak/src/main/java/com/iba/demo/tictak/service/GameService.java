@@ -2,12 +2,15 @@ package com.iba.demo.tictak.service;
 
 import com.iba.demo.tictak.exception.GameException;
 import com.iba.demo.tictak.model.Game;
-import com.iba.demo.tictak.model.Player;
 import com.iba.demo.tictak.model.Turn;
+
+/**
+ * @author Alexander Medvedev
+ */
 
 public interface GameService {
 	
-	public Game createGame(Player creator);
+	public Game createRandomGame();
 	
 	public void saveGame(Game game);
 	

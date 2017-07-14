@@ -1,5 +1,9 @@
 package com.iba.demo.tictak.model;
 
+/**
+ * @author Alexander Medvedev, Pavel Bekish
+ */
+
 public class Player {
 	
 	private String id;
