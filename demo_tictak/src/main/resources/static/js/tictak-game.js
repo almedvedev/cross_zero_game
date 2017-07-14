@@ -55,7 +55,7 @@ function startGame() {
                         setTurnTaker("Game ends with a draw");
                     } else {
                         setTurnTaker("Player " +
-                            (game.gameOver.winner.mark == "CROSS" ? "x" : "o") +
+                            (game.gameOver.winner.mark == "CROSS" ? "X" : "O") +
                             (gameOverCondition == "WON_WITH_HORIZONTAL_LINE" ? " won with horizontal line" :
                                 (gameOverCondition == "WON_WITH_VERTICAL_LINE" ? " won with vertical line" :
                                     " won with diagonal line ")));
@@ -63,7 +63,7 @@ function startGame() {
                     showButtonNewGame();
                     return;
                 } else {
-                    setTurnTaker(game.turnTaker.mark);
+                    setTurnTaker(game.turnTaker.mark == "CROSS" ? "Player X turn" : "Player O turn");
                 }
 
             },
