@@ -1,4 +1,4 @@
-package com.iba.demo.tictak.screen.console;
+package com.iba.demo.tictak.app;
 
 
 import com.iba.demo.tictak.exception.GameException;
@@ -13,12 +13,15 @@ import com.iba.demo.tictak.model.Turn;
 import com.iba.demo.tictak.model.factory.GameFactory;
 import com.iba.demo.tictak.model.factory.RandomPlayerGameFactory;
 import com.iba.demo.tictak.screen.Screen;
+import com.iba.demo.tictak.screen.console.BoardTemplate;
+import com.iba.demo.tictak.screen.console.ConsoleScreen;
+import com.iba.demo.tictak.screen.console.View;
 import com.iba.demo.tictak.service.BotService;
 import com.iba.demo.tictak.service.GameService;
 import com.iba.demo.tictak.service.impl.BotServiceImpl;
 import com.iba.demo.tictak.service.impl.GameServiceImpl;
 
-public class ConsoleDemo {
+public class ConsoleDemoApp {
 	private Screen screen = new ConsoleScreen();
 	
 	private static View view = null;
@@ -29,7 +32,7 @@ public class ConsoleDemo {
 
 	public static void main(String[] args) {
 		 
-		ConsoleDemo demo = new ConsoleDemo();
+		ConsoleDemoApp demo = new ConsoleDemoApp();
 		GameFactory gameFactory = RandomPlayerGameFactory.newGameFactory(); 
 		Game game = gameFactory.createGame();
 
