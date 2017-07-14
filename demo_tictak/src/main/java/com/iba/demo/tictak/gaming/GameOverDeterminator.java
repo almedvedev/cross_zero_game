@@ -44,7 +44,7 @@ public class GameOverDeterminator {
 			}
 		}
 		if (game.getRemainingTurns() <= 0 ) {
-			return new GameOver(GameOverCond.DICE);
+			return new GameOver(GameOverCond.DRAW);
 		}
 		return new GameOver(GameOverCond.NONE);
 	}
