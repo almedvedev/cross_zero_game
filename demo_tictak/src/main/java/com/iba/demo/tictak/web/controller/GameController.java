@@ -1,5 +1,8 @@
 package com.iba.demo.tictak.web.controller;
 
+import com.iba.demo.tictak.model.factory.RandomPlayerGameFactory;
+import com.iba.demo.tictak.service.impl.BotServiceImpl;
+import com.iba.demo.tictak.service.impl.GameServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,14 +23,17 @@ import com.iba.demo.tictak.service.GameService;
 
 @Controller
 public class GameController {
-	
-	private BotService botService;
-	
-	private GameService gameService; 
+
+    private Game game;
+
+    private BotService botService;
+
+    private GameService gameService;
 
     @RequestMapping("/game")
     public void newGame(Model model) {
-    	
+        botService = new BotServiceImpl();
+        gameService = new GameServiceImpl();
         model.addAttribute("name", "TicTak");
     }
 
@@ -65,6 +71,29 @@ public class GameController {
    	 	}
    	 	gameService.makeTurn(game, turn);    	
     	return ResponseEntity.ok(game);
+    }
+
+    @PostMapping("/new_game")
+    public ResponseEntity<?> createNewGame(@RequestBody String postAction, Errors errors) {
+        game = RandomPlayerGameFactory.newGameFactory().createGame();
+        Gson gson = new Gson();
+        String result = gson.toJson(game);
+        if (errors.hasErrors()) {
+            result = "Error on:" + postAction;
+            return ResponseEntity.badRequest().body(result);
+        }
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/make_bot_turn")
+    public ResponseEntity<?> makeBotTurn(@RequestBody String postAction, Errors errors) throws Exception {
+        Turn turn = botService.generateRandomTurn(game);
+        gameService.makeTurn(game, turn);
+        Gson gson = new Gson();
+        if (errors.hasErrors()) {
+            return ResponseEntity.badRequest().body("Error on:" + postAction);
+        }
+        return ResponseEntity.ok(gson.toJson(game));
     }
 
 }

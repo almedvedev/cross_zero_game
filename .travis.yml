@@ -7,10 +7,9 @@ language: java
 jdk:
   - oraclejdk8
 
-before_install:
-  - chmod +x demo_tictak/mvnw 
-  - demo_tictak/mvnw -install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+before_script:
+  - mvn -f demo_tictak/pom.xml install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
-install:
-  - demo_tictak/mvnw test -B
+script:
+  - mvn -f demo_tictak/pom.xml test -B
   - docker build -t tic-tac-toe demo_tictak/.

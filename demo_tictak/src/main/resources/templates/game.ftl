@@ -7,6 +7,7 @@
 </head>
 <body>
 <#--<h2>Hello ${name}!</h2>-->
+<div id="turn_taker"></div>
 <div class="tictak_container">
     <table id='tictak_table'>
     </table>
