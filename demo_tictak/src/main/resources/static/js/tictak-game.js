@@ -21,7 +21,7 @@ function newGame() {
             console.log("SUCCESS : ", data);
             currentGameId = game.id;
             drawEmptyBoard();
-            setTurnTaker(game.turnTaker.mark);
+            setTurnTaker(game.turnTaker.mark == "CROSS" ? "Player X turn" : "Player O turn");
             startGame();
         },
         error: function (e) {
