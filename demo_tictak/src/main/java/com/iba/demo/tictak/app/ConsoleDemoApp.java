@@ -40,10 +40,13 @@ public class ConsoleDemoApp {
 
 		GameOverDeterminator determinator = new GameOverDeterminator();
 		GameOver gamover;
-		
+		String gameResult;
 		int turnCounter = 0;
 
 		System.out.println("Welcome to Tic-Tac-Toe");
+		System.out.println("\nGame Board Creation…");
+		System.out.println("Board is created."); 
+		System.out.println("The game will start with player "+ game.getTurnTaker().getMark());
 
 		while( !game.isGameOver() ) {
 			turnCounter ++;
@@ -76,11 +79,21 @@ public class ConsoleDemoApp {
 			if (!GameOverCond.NONE.equals(gamover.getGameOverCond())) {
 				
 				if (GameOverCond.DRAW.equals(gamover.getGameOverCond())) {
+					gameResult = "No winner";
 					System.out.println("No winner");
 				}
 				else {
+					GameOverCond  cond = gamover.getGameOverCond();
+					if (cond.equals(gamover.getGameOverCond().WON_WITH_HORIZONTAL_LINE)) {
+						gameResult = "won with horizontal line";
+					}else if (cond.equals(gamover.getGameOverCond().WON_WITH_HORIZONTAL_LINE)) {
+						gameResult = "won with horizontal line";
+					}else {
+						gameResult = "won with diagonal  line";
+					} 
+					
 					System.out.println((PlayerMark.CROSS.equals( game.getTurnTaker().getMark()) ?
-							BoardCellState.NOUGHT:BoardCellState.CROSS)+" player "+ gamover.getGameOverCond());
+							BoardCellState.NOUGHT:BoardCellState.CROSS)+" player "+gameResult);
 				}
 			}
 			
