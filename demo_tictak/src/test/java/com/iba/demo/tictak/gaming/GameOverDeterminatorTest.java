@@ -96,13 +96,13 @@ public class GameOverDeterminatorTest {
     	game7.setRemainingTurns(0);
     	
         return Arrays.asList(new Object[][] {
-               //  { game0, new GameOver(null, GameOverCond.NONE) }, 
+                 { game0, new GameOver(null, GameOverCond.NONE) }, 
                  { game1, new GameOver(crossPlayer, GameOverCond.WON_WITH_DIAGONILE_LINE) }, 
                  { game2, new GameOver(noughtPlayer, GameOverCond.WON_WITH_DIAGONILE_LINE) },
-                 { game3, new GameOver(noughtPlayer, GameOverCond.WON_WITH_VERTICAL_LINE) },
-                 { game4, new GameOver(crossPlayer, GameOverCond.WON_WITH_HORIZONTAL_LINE) },
+                 { game3, new GameOver(noughtPlayer, GameOverCond.WON_WITH_HORIZONTAL_LINE) },
+                 { game4, new GameOver(crossPlayer, GameOverCond.WON_WITH_VERTICAL_LINE) },
                  { game5, new GameOver(null, GameOverCond.NONE) },
-                 { game6, new GameOver(noughtPlayer, GameOverCond.WON_WITH_HORIZONTAL_LINE) },
+                 { game6, new GameOver(noughtPlayer, GameOverCond.WON_WITH_VERTICAL_LINE) },
                  { game7, new GameOver(null, GameOverCond.DRAW) }
            });
     }
