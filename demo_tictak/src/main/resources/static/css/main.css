@@ -1,0 +1,30 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url("../img/background.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.tictak_container {
+    text-align: center;
+}
+
+#tictak_table {
+    display: inline-table;
+    margin-top: 20%;
+}
+
+.tictak_cell {
+    width: 60px;
+    height: 60px;
+    background-color: #dee;
+    font: 26px/26px Arial, Helvetica, sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
