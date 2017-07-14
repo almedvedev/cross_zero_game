@@ -1,5 +1,6 @@
 package com.iba.demo.tictak.web.controller;
 
+import com.google.gson.reflect.TypeToken;
 import com.iba.demo.tictak.model.factory.RandomPlayerGameFactory;
 import com.iba.demo.tictak.service.impl.BotServiceImpl;
 import com.iba.demo.tictak.service.impl.GameServiceImpl;
@@ -20,6 +21,9 @@ import com.iba.demo.tictak.model.factory.GameFactory;
 import com.iba.demo.tictak.model.validation.TurnValidator;
 import com.iba.demo.tictak.service.BotService;
 import com.iba.demo.tictak.service.GameService;
+
+import java.lang.reflect.Type;
+import java.util.Map;
 
 @Controller
 public class GameController {
@@ -87,9 +91,13 @@ public class GameController {
 
     @PostMapping("/make_bot_turn")
     public ResponseEntity<?> makeBotTurn(@RequestBody String postAction, Errors errors) throws Exception {
+        Gson gson = new Gson();
+        Type mapType = new TypeToken<Map<String, String>>(){}.getType();
+        Map<String, String> postParams = gson.fromJson(postAction, mapType);
+        String id = postParams.get("id");
         Turn turn = botService.generateRandomTurn(game);
         gameService.makeTurn(game, turn);
-        Gson gson = new Gson();
+
         if (errors.hasErrors()) {
             return ResponseEntity.badRequest().body("Error on:" + postAction);
         }
