@@ -9,17 +9,18 @@ import com.iba.demo.tictak.model.Turn;
 import com.iba.demo.tictak.service.BotService;
 import com.iba.demo.tictak.util.RandomGenerator;
 
-
+/**
+ * @author Tatarenko_V
+ *
+ */
 public class BotServiceImpl implements BotService {
 	
 	/* (non-Javadoc)
-	 * @see com.iba.demo.tictactoe.service.impl.BotService#makeRandomTurn(com.iba.demo.tictactoe.model.Game)
+	 * @see com.iba.demo.tictak.service.BotService#generateRandomTurn(com.iba.demo.tictak.model.Game)
 	 */
 	@Override
 	public Turn generateRandomTurn(Game game) {
-		int remainingTurns = game.getRemainingTurns();
-
-		if (remainingTurns > 0) {
+		if (game.getRemainingTurns() > 0) {
 			
 			int turnNumRnd = new RandomGenerator().getRandomNumInRange(0, game.getRemainingTurns() - 1);
 			int freeCellNum = 0;
@@ -30,13 +31,14 @@ public class BotServiceImpl implements BotService {
 				for (int y = 0; y < Board.SIZE; y++) {
 					cell = board.getCell(x, y);
 					if (BoardCellState.EMPTY.equals(cell.getState()) && freeCellNum++ == turnNumRnd) {
-						return new Turn(game.getTurnTaker(), cell);
+						return new Turn(game.getTurnTaker(), 
+								new BoardCell(x, y, PlayerMark.CROSS.equals( game.getTurnTaker().getMark()) ?
+								BoardCellState.CROSS:BoardCellState.NOUGHT));
 					}
 				}
 			}
 		}
 		return null;
 	}
-
 }
 
