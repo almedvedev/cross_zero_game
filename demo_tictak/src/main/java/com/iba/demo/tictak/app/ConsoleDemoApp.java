@@ -48,7 +48,6 @@ public class ConsoleDemoApp {
 		try {
 			Thread.sleep(TURN_DELAY);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -76,11 +75,9 @@ public class ConsoleDemoApp {
 				e.printStackTrace();
 			}
 			
-			
 			try {
 				Thread.sleep(TURN_DELAY);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
