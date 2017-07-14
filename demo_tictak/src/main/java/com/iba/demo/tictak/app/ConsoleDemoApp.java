@@ -55,9 +55,9 @@ public class ConsoleDemoApp {
 		view = demo.buildView( game.getBoard() );
 		demo.screen.display( view );
 		
-		
 		System.out.println("Board is created."); 
-		System.out.println("The game will start with player "+ game.getTurnTaker().getMark());
+		System.out.println("The game will start with player "+ (PlayerMark.CROSS.equals( game.getTurnTaker().getMark()) ?'X':'O'));
+
 
 		while( !game.isGameOver() ) {
 			turnCounter ++;
@@ -68,13 +68,14 @@ public class ConsoleDemoApp {
 			Turn turn = demo.botService.generateRandomTurn(game);
 
 			System.out.println();
-			System.out.println(game.getTurnTaker().getMark()+" player turn: ");
+			System.out.println("Player "+(PlayerMark.CROSS.equals( game.getTurnTaker().getMark()) ?'X':'O') +" turn: ");
 			
 			try {
 				demo.gameService.makeTurn(game, turn);
 			} catch (GameException e) {	
 				e.printStackTrace();
 			}
+			
 			
 			try {
 				Thread.sleep(TURN_DELAY);
@@ -103,8 +104,12 @@ public class ConsoleDemoApp {
 						gameResult = "won with diagonal  line";
 					} 
 					
-					System.out.println((PlayerMark.CROSS.equals( game.getTurnTaker().getMark()) ?
-							BoardCellState.NOUGHT:BoardCellState.CROSS)+" player "+gameResult);
+//					System.out.println((PlayerMark.CROSS.equals( game.getTurnTaker().getMark()) ?
+	//						BoardCellState.NOUGHT:BoardCellState.CROSS)+" player "+gameResult);
+					System.out.println("Player "+(PlayerMark.CROSS.equals( game.getTurnTaker().getMark()) ?
+							'O':'X')+" "+gameResult);
+					
+					
 				}
 			}
 			
