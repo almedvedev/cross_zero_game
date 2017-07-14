@@ -103,7 +103,7 @@ public class GameOverDeterminatorTest {
                  { game4, new GameOver(crossPlayer, GameOverCond.WON_WITH_HORIZONTAL_LINE) },
                  { game5, new GameOver(null, GameOverCond.NONE) },
                  { game6, new GameOver(noughtPlayer, GameOverCond.WON_WITH_HORIZONTAL_LINE) },
-                 { game7, new GameOver(null, GameOverCond.DICE) }
+                 { game7, new GameOver(null, GameOverCond.DRAW) }
            });
     }
 

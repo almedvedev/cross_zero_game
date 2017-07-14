@@ -4,7 +4,7 @@ public enum GameOverCond {
 	
 	NONE,
 	
-	DICE,
+	DRAW,
 	
 	WON_WITH_HORIZONTAL_LINE,
 	
