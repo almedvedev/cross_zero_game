@@ -1,6 +1,8 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 body {
@@ -9,6 +11,37 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+
+
+.start_form {
+    text-align: center;
+
+}
+
+
+#turn_taker {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+.start_form input {
+    font: 18px/18px Arial, Helvetica, sans-serif;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 20px 40px;
+    border-radius: 30px;
+    margin-top: 30%;
+    outline: none;
+    cursor: pointer;
+}
+
+.start_form input:hover {
+    -webkit-box-shadow: 0px 0px 30px -5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 30px -5px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 30px -5px rgba(0,0,0,0.5);
 }
 
 .tictak_container {
@@ -21,9 +54,10 @@ body {
 }
 
 .tictak_cell {
-    width: 60px;
-    height: 60px;
-    background-color: #dee;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 10px;
     font: 26px/26px Arial, Helvetica, sans-serif;
     text-align: center;
     cursor: pointer;
