@@ -25,8 +25,6 @@ public class GamePlayTest {
 	
 	private Screen screen = new ConsoleScreen();
 	
-	private static View view = null;
-	
 	private GameService gameService = new GameServiceImpl();
 	
 	private BotService botService = new BotServiceImpl();
