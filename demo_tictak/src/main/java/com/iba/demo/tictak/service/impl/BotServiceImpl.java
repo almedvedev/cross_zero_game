@@ -30,13 +30,6 @@ public class BotServiceImpl implements BotService {
 				for (int y = 0; y < Board.SIZE; y++) {
 					cell = board.getCell(x, y);
 					if (BoardCellState.EMPTY.equals(cell.getState()) && freeCellNum++ == turnNumRnd) {
-						
-						game.setRemainingTurns(--remainingTurns);
-						board.updateWithCell(cell);
-						game.setTurnTaker(
-								(PlayerMark.CROSS.equals( game.getTurnTaker().getMark())) ?
-										game.getNoughtPlayer():game.getCrossPlayer());
-
 						return new Turn(game.getTurnTaker(), cell);
 					}
 				}
