@@ -16,7 +16,7 @@ public class Game {
 	
 	private GameStatus status;
 	
-	private Player winner;
+	private GameOver gameOver;
 	
 	private Board board;
 	
@@ -68,12 +68,19 @@ public class Game {
 		this.status = status;
 	}
 
-	public Player getWinner() {
-		return winner;
+	public GameOver getGameOver() {
+		return gameOver;
+	}
+	
+	public boolean isGameOver() {
+		return GameStatus.GAME_OVER.equals( getStatus() ); 
 	}
 
-	public void setWinner(Player winner) {
-		this.winner = winner;
+	public void setGameOver(GameOver gameOver) {
+		this.gameOver = gameOver;
+		if ( !GameOverCond.NONE.equals( gameOver.getGameOverCond() ) ) {
+			this.setStatus(GameStatus.GAME_OVER);
+		}
 	}
 
 	public Board getBoard() {

@@ -4,7 +4,7 @@ import com.iba.demo.tictak.exception.GameException;
 import com.iba.demo.tictak.model.Board;
 import com.iba.demo.tictak.model.BoardCell;
 import com.iba.demo.tictak.model.Game;
-import com.iba.demo.tictak.model.GameStatus;
+import com.iba.demo.tictak.model.GameOver;
 import com.iba.demo.tictak.model.Player;
 import com.iba.demo.tictak.model.PlayerMark;
 import com.iba.demo.tictak.model.Turn;
@@ -44,13 +44,8 @@ public class TurnMaker {
 	}
 	
 	private void updateGameStatus(Game game) {
-		if (game.getRemainingTurns() < 4)
-			return;		
-		Player winner = new WinnerDeterminator().determineWinner(game);
-		game.setWinner(winner);		
-		if (game.getRemainingTurns() == 0 || winner != null) {
-			game.setStatus(GameStatus.GAME_OVER);
-		}
+		GameOver gameOver = new GameOverDeterminator().determineGameOver(game);		
+		game.setGameOver(gameOver);		
 	}
 
 }

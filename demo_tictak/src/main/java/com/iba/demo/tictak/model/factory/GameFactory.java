@@ -12,13 +12,9 @@ public class GameFactory {
 	
 	private Player noughtPlayer;
 	
-	private GameFactory(Player crossPlayer, Player noughtPlayer) {
+	protected GameFactory(Player crossPlayer, Player noughtPlayer) {
 		this.crossPlayer = crossPlayer;
 		this.noughtPlayer = noughtPlayer;
-	}
-	
-	public static GameFactory newGameFactory() {
-		return new GameFactory(null, null);
 	}
 	
 	public static GameFactory newGameFactory(Player crossPlayer, Player noughtPlayer) {
