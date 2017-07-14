@@ -4,6 +4,10 @@ $(document).ready(function () {
     newGame();
 });
 
+function showButtonNewGame() {
+    document.getElementById("new_game").style.visibility = "visible";
+}
+
 function newGame() {
     $.ajax({
         type: "POST",
@@ -24,7 +28,6 @@ function newGame() {
             console.log("ERROR : ", e);
         }
     });
-
 }
 
 function setTurnTaker(turnTaker) {
@@ -49,15 +52,15 @@ function startGame() {
                     clearInterval(botTimer);
                     var gameOverCondition = game.gameOver.gameOverCond;
                     if (gameOverCondition === "NONE" || gameOverCondition === "DRAW") {
-                        setTurnTaker("Game finished");
+                        setTurnTaker("Game ends with a draw");
                     } else {
-                        setTurnTaker("Winner: " +
+                        setTurnTaker("Player " +
                             (game.gameOver.winner.mark == "CROSS" ? "x" : "o") +
-                            " | Condition: " +
-                            (gameOverCondition == "WON_WITH_HORIZONTAL_LINE" ? "Won with horizontal line" :
-                                (gameOverCondition == "WON_WITH_VERTICAL_LINE" ? "Won with vertical line" :
-                                    "Won with diagonal line ")));
+                            (gameOverCondition == "WON_WITH_HORIZONTAL_LINE" ? " won with horizontal line" :
+                                (gameOverCondition == "WON_WITH_VERTICAL_LINE" ? " won with vertical line" :
+                                    " won with diagonal line ")));
                     }
+                    showButtonNewGame();
                     return;
                 } else {
                     setTurnTaker(game.turnTaker.mark);

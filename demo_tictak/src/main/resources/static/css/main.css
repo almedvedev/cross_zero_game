@@ -15,12 +15,18 @@ body {
 
 .start_form {
     text-align: center;
+    margin-top: 20%;
+}
+
+.start_form#new_game {
+    margin-top: 30px;
+    visibility: hidden;
 }
 
 #turn_taker {
     text-align: center;
     color: white;
-    margin-top: 20%;
+    margin-top: 15%;
 }
 
 .start_form input {
@@ -29,7 +35,6 @@ body {
     background-color: rgba(255, 255, 255, 0.75);
     padding: 20px 40px;
     border-radius: 30px;
-    margin-top: 30%;
     outline: none;
     cursor: pointer;
 }
