@@ -28,11 +28,8 @@ import com.iba.demo.tictak.service.impl.GameServiceImpl;
 public class ConsoleDemoApp {
 	private static final  int TURN_DELAY =2000;
 	private Screen screen = new ConsoleScreen();
-	
 	private static View view = null;
-	
 	private GameService gameService = new GameServiceImpl();
-	
 	private BotService botService = new BotServiceImpl();
 
 	public static void main(String[] args) {
