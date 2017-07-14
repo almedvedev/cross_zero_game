@@ -45,6 +45,17 @@ public class ConsoleDemoApp {
 
 		System.out.println("Welcome to Tic-Tac-Toe");
 		System.out.println("\nGame Board Creation…");
+		try {
+			Thread.sleep(TURN_DELAY);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		view = demo.buildView( game.getBoard() );
+		demo.screen.display( view );
+		
+		
 		System.out.println("Board is created."); 
 		System.out.println("The game will start with player "+ game.getTurnTaker().getMark());
 
