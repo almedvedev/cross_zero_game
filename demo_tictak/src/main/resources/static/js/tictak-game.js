@@ -1,3 +1,5 @@
+var currentGameId;
+
 $(document).ready(function () {
     newGame();
 });
@@ -11,9 +13,11 @@ function newGame() {
         cache: false,
         timeout: 60000,
         success: function (data) {
+            var game = JSON.parse(data);
             console.log("SUCCESS : ", data);
+            currentGameId = game.id;
             drawEmptyBoard();
-            setTurnTaker(JSON.parse(data).turnTaker.mark);
+            setTurnTaker(game.turnTaker.mark);
             startGame();
         },
         error: function (e) {
@@ -29,11 +33,12 @@ function setTurnTaker(turnTaker) {
 
 function startGame() {
     var botTimer = setInterval(function () {
+        var postAction = {"postAction": "Make bot turn", "id": currentGameId};
         $.ajax({
             type: "POST",
             contentType: "application/json",
             url: "/make_bot_turn",
-            data: "Make bot turn",
+            data: JSON.stringify(postAction),
             cache: false,
             timeout: 60000,
             success: function (data) {
@@ -42,7 +47,17 @@ function startGame() {
                 makeTurn(game.board.cells);
                 if (game.status == "GAME_OVER") {
                     clearInterval(botTimer);
-                    setTurnTaker("Winner: " + game.gameOver.winner.mark);
+                    var gameOverCondition = game.gameOver.gameOverCond;
+                    if (gameOverCondition === "NONE" || gameOverCondition === "DRAW") {
+                        setTurnTaker("Game finished");
+                    } else {
+                        setTurnTaker("Winner: " +
+                            (game.gameOver.winner.mark == "CROSS" ? "x" : "o") +
+                            " | Condition: " +
+                            (gameOverCondition == "WON_WITH_HORIZONTAL_LINE" ? "Won with horizontal line" :
+                                (gameOverCondition == "WON_WITH_VERTICAL_LINE" ? "Won with vertical line" :
+                                    "Won with diagonal line ")));
+                    }
                     return;
                 } else {
                     setTurnTaker(game.turnTaker.mark);
@@ -57,7 +72,6 @@ function startGame() {
 
     setTimeout(function () {
         clearInterval(botTimer);
-        alert("Game finished");
     }, 19000);
 }
 
