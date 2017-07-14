@@ -1,9 +1,0 @@
-language: java
-jdk:
-  - oraclejdk8
-
-before-install:
-  - demo_tictak/mvnw -install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-
-install:
-  - demo_tictak/mvnw test -B
