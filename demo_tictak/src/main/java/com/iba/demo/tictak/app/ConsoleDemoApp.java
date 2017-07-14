@@ -21,7 +21,12 @@ import com.iba.demo.tictak.service.GameService;
 import com.iba.demo.tictak.service.impl.BotServiceImpl;
 import com.iba.demo.tictak.service.impl.GameServiceImpl;
 
+/**
+ * @author Tatarenko_V
+ *
+ */
 public class ConsoleDemoApp {
+	private static final  int TURN_DELAY =2000;
 	private Screen screen = new ConsoleScreen();
 	
 	private static View view = null;
@@ -61,7 +66,7 @@ public class ConsoleDemoApp {
 			}
 			
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(TURN_DELAY);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
