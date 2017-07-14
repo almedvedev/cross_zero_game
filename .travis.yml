@@ -3,6 +3,7 @@ jdk:
   - oraclejdk8
 
 before-install:
+  - chmod +x demo_tictak/mvnw 
   - demo_tictak/mvnw -install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 install:
