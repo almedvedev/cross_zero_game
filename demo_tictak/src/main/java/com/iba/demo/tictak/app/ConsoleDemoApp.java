@@ -86,8 +86,8 @@ public class ConsoleDemoApp {
 					GameOverCond  cond = gamover.getGameOverCond();
 					if (cond.equals(gamover.getGameOverCond().WON_WITH_HORIZONTAL_LINE)) {
 						gameResult = "won with horizontal line";
-					}else if (cond.equals(gamover.getGameOverCond().WON_WITH_HORIZONTAL_LINE)) {
-						gameResult = "won with horizontal line";
+					}else if (cond.equals(gamover.getGameOverCond().WON_WITH_VERTICAL_LINE)) {
+						gameResult = "won with vertical line";
 					}else {
 						gameResult = "won with diagonal  line";
 					} 
