@@ -28,11 +28,13 @@ public class GameOverDeterminator {
 			final int lineIdx = j;
 			winner = findWinnerByLine(game, i -> board.getCell(i, lineIdx) );
 			if (winner != null) {
-				return new GameOver(winner, GameOverCond.WON_WITH_HORIZONTAL_LINE);				
+//				return new GameOver(winner, GameOverCond.WON_WITH_HORIZONTAL_LINE);				
+				return new GameOver(winner, GameOverCond.WON_WITH_VERTICAL_LINE);				
 			}			
 			winner = findWinnerByLine(game, i -> board.getCell(lineIdx, i) );
 			if (winner != null) {
-				return new GameOver(winner, GameOverCond.WON_WITH_VERTICAL_LINE);				
+				return new GameOver(winner, GameOverCond.WON_WITH_HORIZONTAL_LINE);				
+//				return new GameOver(winner, GameOverCond.WON_WITH_VERTICAL_LINE);				
 			}			
 			winner = findWinnerByLine(game, i -> board.getCell(i, i) );
 			if (winner != null) {
